@@ -4,6 +4,7 @@ import play.data.validation.Constraints;
 
 public class SampleForm {
     @Constraints.Required
+    @Constraints.MaxLength(255)
     private String message;
 
     public String getMessage() {
