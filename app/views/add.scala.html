@@ -1,9 +1,10 @@
-@(msg: String, form1: Form[models.Message])
+@import play.mvc.Http.Request
+@(msg: String, form1: Form[models.Message])(implicit request: Request, messages: play.i18n.Messages)
 
 @main("Welcome to Play") {
 <h1>Hi!</h1>
 <p>@msg</p>
-@helper.form(action = routes.HomeController.create){
+@helper.form(action = routes.HomeController.create()){
     @helper.CSRF.formField
     @(helper.inputText(
         field = form1("name")
